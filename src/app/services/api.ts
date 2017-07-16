@@ -17,6 +17,15 @@ export class Api {
     });
   }
 
+  private normalizeData (arr) {
+    return {
+      'Comedy': arr[0].results,
+      'Crime': arr[1].results,
+      'Drama': arr[2].results,
+      'Sci-Fi': arr[3].results
+    }
+  }
+
   getApiData(path: string, options?: string): Observable<any> {
 
     const contentType = ['35', '80', '18', '10765']; // comedy: 35, crime: 80, drama: 18, scifi: 10765
@@ -27,6 +36,8 @@ export class Api {
       urls.push(this.http.get(url + id))
     })
     return Observable.forkJoin(urls)
+      .map(this.getJson)
+      .map(this.normalizeData)
       .do(data => console.log(data))
   }
 

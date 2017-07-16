@@ -1,15 +1,30 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'carousel-unit',
   template: `
     <li class="card effect1">
-      <div class="inside-top">
-        <img src="http://placehold.it/350x150">
+      <div
+        class="inside-top"
+        (mouseover)="toggleDetails(true)"
+        (mouseleave)="toggleDetails(false)"
+      >
+        <h3 class="cardText"> {{data.name}} </h3>
+        <img class="backdrop" src="http://image.tmdb.org/t/p/w185/{{data.backdrop_path}}">
+        <p *ngIf="displayDetails">Popularity: {{data.popularity}}</p>
+        <p *ngIf="displayDetails">Overview: {{data.overview}}</p>
       </div>
     </li>
   `,
   styleUrls: ['./carouselUnit.css']
 })
 
-export class CarouselUnit { }
+export class CarouselUnit {
+  @Input() data = {};
+  displayDetails = false;
+
+  toggleDetails(bool) {
+    this.displayDetails = bool;
+  }
+
+ }
