@@ -47,7 +47,6 @@ export class CarouselContainer implements OnInit {
     this.mid = Math.abs(this.data.length / 2);
     this.low = this.mid - 2;
     this.high = this.mid + 2;
-    console.log(this.low, this.mid, this.high);
   }
 
   showMore(direction) {

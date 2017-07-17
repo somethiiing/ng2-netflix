@@ -9,9 +9,10 @@ import { Api } from './services';
         <h1 class="title">Ng2 - NetFlax</h1>
       </div>
       <carousel-container
-        *ngFor="let key of dataKeys"
+        *ngFor="let key of dataKeys; let i = index"
         [title]="key"
         [data]="data[key]"
+        [style.z-index]="100 - i"
       ></carousel-container>
     </div>
   `,
@@ -33,20 +34,13 @@ export class App implements OnInit {
     let currentIndex = array.length
     let temporaryValue;
     let randomIndex;
-
-    // While there remain elements to shuffle...
     while (0 !== currentIndex) {
-
-      // Pick a remaining element...
       randomIndex = Math.floor(Math.random() * currentIndex);
       currentIndex -= 1;
-
-      // And swap it with the current element.
       temporaryValue = array[currentIndex];
       array[currentIndex] = array[randomIndex];
       array[randomIndex] = temporaryValue;
     }
-
     return array;
   }
 
@@ -60,9 +54,3 @@ export class App implements OnInit {
       });
   }
 }
-
-
-      // <carousel-container
-      //   [title]="'Comedy'"
-      //   [data]="data.comedy"
-      // ></carousel-container>
