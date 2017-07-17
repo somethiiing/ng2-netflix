@@ -29,11 +29,34 @@ export class App implements OnInit {
 
   constructor( private api: Api) { }
 
+  private shuffle(array) {
+    let currentIndex = array.length
+    let temporaryValue;
+    let randomIndex;
+
+    // While there remain elements to shuffle...
+    while (0 !== currentIndex) {
+
+      // Pick a remaining element...
+      randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex -= 1;
+
+      // And swap it with the current element.
+      temporaryValue = array[currentIndex];
+      array[currentIndex] = array[randomIndex];
+      array[randomIndex] = temporaryValue;
+    }
+
+    return array;
+  }
+
+
   ngOnInit() {
     this.api.getApiData('/discover/tv', '&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1')
       .subscribe(data => {
         this.data = data;
         this.dataKeys = Object.keys(data);
+        this.dataKeys.forEach( elem => { this.data[elem] = this.shuffle(this.data[elem]) })
       });
   }
 }

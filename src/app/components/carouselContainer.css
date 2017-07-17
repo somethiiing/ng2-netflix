@@ -41,7 +41,7 @@ button:focus {outline:0 !important;}
   transition-duration: 0.1s;
   transition-timing-function: ease-out;
   transition-delay: 0s;
-  color:blue;
+  color:white;
   opacity: .8;
   z-index: 9999999;
   cursor: pointer;
@@ -68,7 +68,7 @@ button:focus {outline:0 !important;}
   transition-duration: 0.1s;
   transition-timing-function: ease-out;
   transition-delay: 0s;
-  color: blue;
+  color: white;
   z-index: 9999999;
   opacity: .7;
 }
@@ -85,7 +85,7 @@ button:focus {outline:0 !important;}
   transform: scale(1.7);
 }
 
-.module-section{
+.module-section {
   max-width: 100%;
   overflow: hidden;
   overflow-x: hidden;
@@ -94,46 +94,19 @@ button:focus {outline:0 !important;}
 ul{
   width:600em;
   list-style-type:none;
-  padding:15px 0 15px 0;
+  padding: 5px 60px 5px 55px
 }
 
-/*
-.arrow-guides, .arrow-guides:hover{
-
-font-size:29px;
-font-family: FontAwesome;
-font-style: normal;
-font-weight: normal;
-float:left;
-position:relative;
-top:80px;
-left:-10px;
-padding: 10px 5px 5px 2px;
-background:#999;
-color:#fff;
+#content h2 {
+  font-family: 'Helvetica Neue', Helvetica,Arial, sans-serif;
+  color: #e5e5e5;
 }
-*/
-
-/*
-.arrow-guides-right, .arrow-guides-right:hover{
-
-font-size:29px;
-font-family: FontAwesome;
-font-style: normal;
-font-weight: normal;
-float:right;
-position:relative;
-bottom:185px;
-right:-40px;
-padding: 10px 2px 5px 5px;
-background:#999;
-color:#fff;
-}
-
-*/
-
 
 .clearfix {
   overflow: auto;
   zoom: 1;
+}
+
+.carouselContent {
+  transform: translateY(-50%);
 }
