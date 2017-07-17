@@ -20,7 +20,12 @@ import { Component, Input } from '@angular/core';
 })
 
 export class CarouselUnit {
-  @Input() data = {};
+  @Input() data = {
+    name: '',
+    popularity: '',
+    overView: '',
+    backdrop_path: ''
+  };
   displayDetails = false;
 
   toggleDetails(bool) {
